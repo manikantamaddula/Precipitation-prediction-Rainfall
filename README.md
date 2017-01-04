@@ -21,6 +21,12 @@ Datasource: https://www.ncdc.noaa.gov/cdo-web/datasets
 Results:
 Generalized R2 approximately equal to test R2, out of fold cross validation R2 is close to actual test R2,  max gR2, max CVR2 and selected model are close to each other.
 
-gR2=0.294 ; CVR2=0.259 ; Standard Deviation=0.0614 ;
+gR2=0.294 ; 
+
+CVR2=0.259 ; 
+
+Standard Deviation=0.0614 ;
+
 Mean absolute prediction accuracy = 86.33%
+
 Residual Sum of Squares = 71.92 
