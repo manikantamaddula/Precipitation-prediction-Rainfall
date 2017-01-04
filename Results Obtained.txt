@@ -1,0 +1,59 @@
+Source: https://www.ncdc.noaa.gov/cdo-web/datasets
+http://journals.ametsoc.org/doi/full/10.1175/1520-0450(2000)039%3C0057:ANNALR%3E2.0.CO%3B2
+
+http://rasayanjournal.co.in/vol-8/issue-1/6_Vol.8,%20No.1,%2033-36,%20Jan.-March,%202015_RJC-1218.pdf
+
+ The weather data was input to the SPSS tool and it identified 5 major parameters as
+Temperature, Dew point, Precipitation, Wind speed, Visibility
+
+The daily weather data contains various parameters: station number(433440-
+Trichirapalli),WBAN(Weather Bureau Air Force Navy Number, Year/ month / date, dew point, temperature, mean values for station level pressure , sea level pressure, wind speed ,visibility, and
+sustained speed, maximum values for wind gust, maximum and minimum temperature, snow depth, total
+precipitation, FRSHTT(fog, rainfall, snow, hail, thunder, tornado) indicator
+
+
+http://cees.tamiu.edu/cees/weather/parameters.html
+
+
+Call: earth(formula=HOURLYPrecip~., data=climateData, pmethod="cv", degree=2, nfold=10, nk=100)
+
+                                                               coefficients
+(Intercept)                                                     0.003672314
+h(HOURLYVISIBILITY-5)                                          -0.000567811
+h(82-HOURLYRelativeHumidity)                                   -0.000024100
+h(HOURLYRelativeHumidity-82)                                   -0.003127128
+h(5-HOURLYVISIBILITY) * h(HOURLYDRYBULBTEMPF-71)               -0.024043270
+h(5-HOURLYVISIBILITY) * h(71-HOURLYDRYBULBTEMPF)                0.001524448
+h(5-HOURLYVISIBILITY) * h(HOURLYWETBULBTEMPF-51)                0.013207884
+h(5-HOURLYVISIBILITY) * h(51-HOURLYWETBULBTEMPF)               -0.001487061
+h(5-HOURLYVISIBILITY) * h(HOURLYWETBULBTEMPF-69)                0.028580656
+h(5-HOURLYVISIBILITY) * h(HOURLYDewPointTempF-49)              -0.008308056
+h(5-HOURLYVISIBILITY) * h(49-HOURLYDewPointTempF)              -0.000676257
+h(5-HOURLYVISIBILITY) * h(HOURLYDewPointTempF-71)              -0.059621097
+h(5-HOURLYVISIBILITY) * h(HOURLYDewPointTempF-72)               0.062107499
+h(6-HOURLYVISIBILITY) * h(HOURLYRelativeHumidity-82)           -0.000363365
+h(HOURLYVISIBILITY-6) * h(HOURLYRelativeHumidity-82)           -0.000452730
+h(5-HOURLYVISIBILITY) * h(HOURLYWindSpeed-20)                   0.008018411
+h(5-HOURLYVISIBILITY) * h(20-HOURLYWindSpeed)                  -0.001472530
+h(5-HOURLYVISIBILITY) * h(HOURLYWindDirection-60)               0.000107832
+h(5-HOURLYVISIBILITY) * h(60-HOURLYWindDirection)               0.000200716
+h(5-HOURLYVISIBILITY) * h(HOURLYWindDirection-250)             -0.000236926
+h(72-HOURLYDRYBULBTEMPF) * h(HOURLYRelativeHumidity-82)         0.000177587
+h(HOURLYDRYBULBTEMPF-72) * h(HOURLYRelativeHumidity-82)        -0.000976721
+h(52-HOURLYWETBULBTEMPF) * h(HOURLYRelativeHumidity-82)        -0.000174109
+h(HOURLYWETBULBTEMPF-52) * h(HOURLYRelativeHumidity-82)         0.000258772
+h(HOURLYRelativeHumidity-82) * h(HOURLYWindSpeed-5)             0.000667931
+h(HOURLYRelativeHumidity-82) * h(5-HOURLYWindSpeed)            -0.000128065
+h(HOURLYRelativeHumidity-82) * h(HOURLYWindSpeed-14)           -0.001170590
+h(HOURLYRelativeHumidity-82) * h(30.09-HOURLYSeaLevelPressure)  0.109904995
+h(HOURLYRelativeHumidity-82) * h(HOURLYAltimeterSetting-30.08)  0.001903232
+h(HOURLYRelativeHumidity-82) * h(30.08-HOURLYAltimeterSetting) -0.108268806
+
+Selected 30 of 32 terms, and 9 of 10 predictors using pmethod="cv"
+Termination condition: RSq changed by less than 0.001 at 32 terms
+Importance: HOURLYVISIBILITY, HOURLYWETBULBTEMPF, HOURLYRelativeHumidity, HOURLYWindSpeed, HOURLYDRYBULBTEMPF, ...
+Number of terms at each degree of interaction: 1 3 26
+GRSq 0.2947123  RSq 0.2959061  mean.oof.RSq 0.2590069 (sd 0.0614)
+
+pmethod="backward" would have selected:
+    27 terms 9 preds,  GRSq 0.2947444  RSq 0.2958147  mean.oof.RSq 0.2462404

@@ -1,0 +1,19 @@
+library(earth)
+climateData = read.csv("C:/Users/Manikanta/Documents/UMKC Subjects/ISL/Presentation/852399.csv", header = TRUE)[, 8:18, drop=FALSE]
+sapply(climateData,class)
+dim(climateData)
+set.seed(1)
+regressionspline<-earth(HOURLYPrecip~.,data=climateData,degree=2,nfold=10,pmethod="cv",nk=100)
+summary(regressionspline,details=TRUE)
+plot(regressionspline)
+residuals<-residuals(regressionspline)
+actuals<-climateData$HOURLYPrecip
+predicteds<-actuals-residuals
+actuals_preds<-data.frame(cbind(actuals,predicteds))
+correlation_accuracy <- cor(actuals_preds)
+mean_absolute_percentage_error<- mean(abs(residuals)/actuals_preds$HOURLYPrecip)*100
+mean_absolute_percentage_accuracy<-(100-mean_absolute_percentage_error)
+mean_absolute_percentage_accuracy
+plot(regressionspline,1)
+plot(regressionspline,3)
+regressionspline$rss
